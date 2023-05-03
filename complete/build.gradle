@@ -7,14 +7,19 @@ plugins {
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
+targetCompatibility = '17'
+
 
 repositories {
-	mavenCentral()
+	maven {
+		url 'https://artifactory.westernasset.com/artifactory/repo/'
+	}
 }
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation('org.springframework.boot:spring-boot-starter-test')
+	compileOnly 'org.projectlombok:lombok:1.18.20'
 }
 
 test {

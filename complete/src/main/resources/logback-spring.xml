@@ -1,0 +1,25 @@
+<configuration>
+    <!--
+    <springProperty scope="context" name="SPRING_APPLICATION_NAME" source="spring.application.name"/>
+    <springProperty scope="context" name="SPRING_LOG_LEVEL_PATTERN" source="logging.pattern.level"/>
+    <property name="DEFAULT_LOG_LEVEL_PATTERN"
+              value="%5p [${SPRING_APPLICATION_NAME}]"/>
+    <property name="LOG_LEVEL_PATTERN"
+              value="${SPRING_LOG_LEVEL_PATTERN:-${DEFAULT_LOG_LEVEL_PATTERN}}"/>
+              -->
+
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+
+<!--    <property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}/}spring.log}"/>-->
+
+    <property name="LOG_PATH" value="${LOG_PATH}"/>
+    <property name="LOG_FILE" value="${LOG_PATH}/${LOG_FILE}"/>
+
+    <include resource="org/springframework/boot/logging/logback/file-appender.xml"/>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+    </root>
+</configuration>
