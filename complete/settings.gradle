@@ -1,1 +1,9 @@
+pluginManagement{
+    repositories {
+        maven {
+            url 'https://artifactory.westernasset.com/artifactory/repo/'
+        }
+    }
+}
+
 rootProject.name = 'rest-service'
